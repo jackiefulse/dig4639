@@ -3,9 +3,16 @@ import React from 'react';
  import HomeScreen from '../screens/HomeScreen';
  import Detail from '../screens/Detail';
 
- const HomeStack = createStackNavigator({
+ const HomeStack = createStackNavigator(
+   {
   // Home: HomeScreen,
-   Detail: Detail
- });
+   Detail: Detail,
+   Home: HomeScreen
+   },
+   {
+    initialRouteName: "Home"
+  }
+ );
+
      
      export default HomeStack;

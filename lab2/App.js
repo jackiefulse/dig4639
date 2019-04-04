@@ -44,7 +44,7 @@ export default class App extends React.Component {
           <View>
             <TextInput value={this.state.value} style={styles.textInput} onChangeText={this.onChange} placeholder="Enter your name"></TextInput>
             </View>
-            {(this.state.isValid)? null:<Text style={styles.error}> Error</Text> }
+            {(this.state.isValid)? null:<Text style={styles.error}// XXX: > Error</Text> }
           <TouchableOpacity style={styles.buttonStyle} onPress={this.onPress}>
           <Text style={styles.buttonText}>Submit</Text>
           </TouchableOpacity>
