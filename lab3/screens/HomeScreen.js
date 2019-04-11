@@ -24,21 +24,26 @@ doSomeWork =(newValue) => {
   this.setState
 }
   render() {
-    const {navigate} = this.props.navigation;
+    const {push} = this.props.navigation;
     return (
       <View style={styles.container}>
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.getStartedContainer}>
-            <Text style={styles.getStartedText}>Cats are amazing</Text>
+            <Text style={styles.getStartedText}>Let's Play Ball</Text>
             <FlatList
              data={
                [
-                 {key: 'cat1',image: require('../assets/images/cat1.png')}, 
-                {key: 'cat2',image: require('../assets/images/cat1.png')},
-                {key: 'cat3',image: require('../assets/images/cat2.png')}
+                 {key: 'football1',image: require('../assets/images/football1.jpg')}, 
+                {key: 'football2',image: require('../assets/images/football2.jpg')},
+                {key: 'football3',image: require('../assets/images/football3.jpg')}
               ]}
              keyExtractor={this._keyExtractor}
-              renderItem={({item}) => <TouchableOpacity onPress={(event) => { console.log(item.key) }}>
+              renderItem={({item}) => 
+              <TouchableOpacity onPress={(event) => { 
+                console.log(item.key) 
+                 HelloWorld=item.key
+                push("Detail", {a: HelloWorld,image:item.image });
+                }}>
                 <Image source={item.image} style={{width:200,height:200}} />
               </TouchableOpacity>}
             />
