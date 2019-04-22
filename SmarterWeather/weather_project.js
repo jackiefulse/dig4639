@@ -25,7 +25,10 @@ import OpenWeatherMap from "./open_weather_map";
 class WeatherProject extends Component {
   constructor(props) {
     super(props);
-    this.state = { forecast: null };
+    this.state = { forecast: null, clock: "", 
+    
+      
+ };
   }
 
     
@@ -83,7 +86,14 @@ class WeatherProject extends Component {
         }
       }
 
+  upDateClock = () => {
+    let time = (new Date ()).toLocaleTimeString();
+    this.setState({clock:time});
+  }
+
   componentDidMount() {
+    this.upDateClock();
+    setInterval(this.upDateClock, 1000);
     navigator.geolocation.getCurrentPosition(
       initialPosition => {
         this._getForecastForCoords(
@@ -152,6 +162,7 @@ class WeatherProject extends Component {
       <PhotoBackdrop image={this.state.newPostImage} >
         <View style={styles.overlay}>
           <View style={styles.row}>
+            <Text style={textStyles.mainText}>{this.state.clock}</Text>
             <Text style={textStyles.mainText}>
               Forecast for
             </Text>
